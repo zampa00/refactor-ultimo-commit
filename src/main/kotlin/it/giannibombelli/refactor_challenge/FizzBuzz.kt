@@ -7,10 +7,7 @@ class FizzBuzz : FizzBuzzInterface {
         accumulator += isNumberDivisibleFor(number, 3, "Fizz")
         accumulator += isNumberDivisibleFor(number, 5, "Buzz")
 
-        return if (accumulator.isEmpty())
-            number.toString()
-        else
-            accumulator
+        return accumulator.ifEmpty { number.toString() }
     }
 
     private fun isNumberDivisibleFor(number: Int, i: Int, s: String) = if (number % i == 0) s else ""
