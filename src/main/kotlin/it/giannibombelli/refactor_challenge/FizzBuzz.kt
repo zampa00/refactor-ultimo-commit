@@ -4,12 +4,14 @@ class FizzBuzz : FizzBuzzInterface {
     override fun say(number: Int): String {
         var accumulator = ""
 
-        accumulator += if (number % 3 == 0) "Fizz" else ""
-        accumulator += if (number % 5 == 0) "Buzz" else ""
+        accumulator += isNumberDivisibleFor(number, 3, "Fizz")
+        accumulator += isNumberDivisibleFor(number, 5, "Buzz")
 
         return if (accumulator.isEmpty())
             number.toString()
         else
             accumulator
     }
+
+    private fun isNumberDivisibleFor(number: Int, i: Int, s: String) = if (number % i == 0) s else ""
 }
