@@ -4,12 +4,8 @@ class FizzBuzz : FizzBuzzInterface {
     override fun say(number: Int): String {
         var accumulator = ""
 
-        if (number % 3 == 0) {
-            accumulator += "Fizz"
-        }
-        if (number % 5 == 0) {
-            accumulator += "Buzz"
-        }
+        accumulator += if (number % 3 == 0) "Fizz" else ""
+        accumulator += if (number % 5 == 0) "Buzz" else ""
 
         return if (accumulator.isEmpty())
             number.toString()
